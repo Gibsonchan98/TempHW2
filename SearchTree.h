@@ -68,6 +68,9 @@ public:
     // A leaf has height 0. Return -1 if the Comparable is not found.
     int height(const Comparable& comp) const;
 
+
+    void print2D();
+
     //*******************************************************************
 
 private:
@@ -98,17 +101,22 @@ private:
 
     static void clear(Node* curr);
 
-    int heightRecursiveHelper(Node* curr) const;
+    int heightAddition(Node* curr) const;
 
-    Node* positionFinder(Node* curr, const Comparable& item) const;
+    void positionFinder(Node*& newPtr, Node* curr, const Comparable& item) const;
 
-    bool deleteNode(Node*& curr,const Comparable& item);
+    void deleteNode(Node*& curr);
 
-    Comparable* deleteLeft(Node*& curr);
+    bool removeRecursive(Node*& curr, const Comparable& item);
+
+    Comparable* replaceWithSmallest(Node*& curr);
 
     bool insertHelper(Node* curr, Comparable* newItem);
 
     static ostream& displaying(ostream& output, Node* curr);
+
+
+    static void print2DUtil(Node *root, int space);
 };
 
 #endif //SEARCHTREE_H
